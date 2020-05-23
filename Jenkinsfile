@@ -15,6 +15,12 @@ node {
         app = docker.build("the-example-app/zerto-app")
     }
 
+    stage('Run image') {
+
+        /*app = docker.build("getintodevops/hellonode")*/
+        app = docker.run("the-example-app/zerto-app")
+    }
+
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
