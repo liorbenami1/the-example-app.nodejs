@@ -33,12 +33,12 @@
     }
 
     stage('stop and remove container') {
-	script {
-          tmp = docker container ls -q
-        }
+	environment {
+        	tmp = sh("docker container ls -q")
+      }
 	echo "My variable is ${tmp}"
-        sh 'docker container stop $tmp'
-        sh 'docker container rm $tmp'
+        sh 'docker container stop ${tmp}'
+        sh 'docker container rm ${tmp}'
     }
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
