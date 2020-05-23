@@ -32,6 +32,12 @@
         }
     }
 
+    stage('stop and remove container') {
+
+        tmp='sudo docker container ls -q'
+        sh 'docker container stop $tmp'
+        sh 'docker container rm $tmp'
+    }
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
