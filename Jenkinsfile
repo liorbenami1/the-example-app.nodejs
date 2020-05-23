@@ -7,6 +7,16 @@ node {
         checkout scm
     }
 
+    stage("Fix the permission issue") {
+
+            agent any
+
+            steps {
+                sh "sudo chown root:jenkins /run/docker.sock"
+            }
+
+     }
+
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
