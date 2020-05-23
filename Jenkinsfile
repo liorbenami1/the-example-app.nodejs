@@ -34,7 +34,7 @@
 
     stage('stop and remove container') {
 	script {
-          tmp = sudo docker container ls -q
+          tmp = docker container ls -q
         }
 	echo "My variable is ${tmp}"
         sh 'docker container stop $tmp'
