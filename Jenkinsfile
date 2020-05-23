@@ -34,7 +34,7 @@
 
     stage('stop and remove container') {
 
-        def tmp='sudo docker container ls -q'
+        def tmp=`sudo docker container ls -q`
 	echo "My variable is ${tmp}"
         sh 'docker container stop $tmp'
         sh 'docker container rm $tmp'
