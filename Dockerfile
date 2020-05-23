@@ -2,18 +2,6 @@ FROM node:9
 
 WORKDIR /app
 
-RUN adduser jenkins sudo
-
-RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
-
-RUN usermod -aG docker jenkins
-
-RUN chmod 777 /var/run/docker.sock
-
-RUN sudo chown root:jenkins /var/run/docker.sock
-
-USER jenkins
-
 RUN npm install -g contentful-cli
 
 COPY package.json .
