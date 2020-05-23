@@ -32,14 +32,15 @@
         }
     }
 
-    stage('stop and remove container') {
+    /*stage('stop and remove container') {
 	environment {
-        	tmp = sh("docker container ls -q")
+        	tmp = sh('docker container ls -q')
       }
 	echo "My variable is ${tmp}"
         sh 'docker container stop ${tmp}'
         sh 'docker container rm ${tmp}'
-    }
+    }*/
+
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
