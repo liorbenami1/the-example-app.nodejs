@@ -10,7 +10,7 @@ RUN usermod -aG docker jenkins
 
 RUN chmod 777 /var/run/docker.sock
 
-RUN chown root:jenkins /var/run/docker.sock
+RUN sudo chown root:jenkins /var/run/docker.sock
 
 USER jenkins
 
