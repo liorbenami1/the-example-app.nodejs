@@ -12,7 +12,7 @@
          * docker build on the command line */
 
         /*app = docker.build("getintodevops/hellonode")*/
-        app = docker.build("zerto-app:${env.BUILD_ID}")
+        app = docker.build("zerto-app")
     }
 
     /*stage('Run image') {
