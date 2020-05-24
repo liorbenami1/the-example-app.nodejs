@@ -12,15 +12,15 @@
          * docker build on the command line */
 
         /*app = docker.build("getintodevops/hellonode")*/
-        app = docker.build("the-example-app/zerto-app")
+        app = docker.build("zerto-app:${env.BUILD_ID}")
     }
 
-    stage('Run image') {
+    /*stage('Run image') {
 
         /*app = docker.build("getintodevops/hellonode")
         app = docker.run("the-example-app/zerto-app")*/
         sh 'docker container run --detach --publish 3000:3000 --name app_zerto the-example-app/zerto-app'
-    }
+    }*/
 
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
