@@ -1,4 +1,4 @@
-	node {
+node {
     def app
 
     stage('Clone repository') {
@@ -12,14 +12,14 @@
          * docker build on the command line */
 
         /*app = docker.build("getintodevops/hellonode")*/
-        app = docker.build("the-example-app/zerto-app:${env.BUILD_NUMBER}")
+        app = docker.build("the-example-app/zerto-app")
     }
 
     stage('Run image') {
-	sh 'echo "Run stage"'
+
         /*app = docker.build("getintodevops/hellonode")
-        app = docker.run("the-example-app/zerto-app")
-        sh 'docker container run --detach --publish 3000:3000 --name app_zerto the-example-app/zerto-app'*/
+        app = docker.run("the-example-app/zerto-app")*/
+        sh 'docker container run --detach --publish 3000:3000 --name app_zerto the-example-app/zerto-app'
     }
 
     stage('Test image') {
