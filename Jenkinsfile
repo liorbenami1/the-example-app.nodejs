@@ -34,5 +34,11 @@ node {
 		repo: "npm-local"
 	)
     }
-
+    
+    stage('Exec npm install') {
+	rtNpmInstall(
+		path: ".",
+		resolverId: "NPM_RESOLVER"
+	)
+    }
 }
