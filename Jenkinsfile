@@ -44,6 +44,7 @@ node {
 
     stage('check if manual') {
 	echo "${currentBuild.buildCauses}"
-	echo "${currentBuild.buildCauses("jenkins.branch.EventCause")}"
+	def buildCause = currentBuild.getBuildCauses()[0].shortDescription
+	echo "Current build was caused by: ${buildCause}\n"
     }
 }
