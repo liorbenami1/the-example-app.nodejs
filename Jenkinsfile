@@ -23,5 +23,10 @@ node {
 			url: "http://15.185.96.125:8081/artifactory",
 			credentialsId: "artifactory-credentials"
 		)
+		rtNpmResolver(
+			id: "NPM_RESOLVER",
+			serverId: "zerto-artifactory",
+			repo: "npm-remote"
+		)
     }
 }
