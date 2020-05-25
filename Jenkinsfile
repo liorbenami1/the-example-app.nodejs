@@ -44,6 +44,6 @@ node {
 
     stage('check if manual') {
 	echo "${currentBuild.buildCauses}"
-	echo "${currentBuild.buildCauses('jenkins.branch.EventCause')}"
+	echo "${currentBuild.buildCauses("jenkins.branch.EventCause")}"
     }
 }
