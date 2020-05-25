@@ -13,4 +13,11 @@ node {
         app = docker.build("the-example-app/zerto-app")
     }
 
+    stage('Test image') {
+        app.inside {
+           sh 'npm run test'
+           sh 'echo "test success"'
+        }
+    }
+
 }
