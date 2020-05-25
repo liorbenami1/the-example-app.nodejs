@@ -41,4 +41,10 @@ node {
 		resolverId: "NPM_RESOLVER"
 	)
     }
+
+    stag('check if manual')
+	if(currentBuild.rawBuild.getCause()[0].toString().contains('UserIdCause')){
+		sh 'echo "this is a manual trigger, going to deploy to Staging environment..."'
+	}
+    }
 }
