@@ -43,7 +43,7 @@ node {
     }*/
 
     stage('check if manual') {
-	echo "${currentBuild.buildCauses}"
+	echo "${currentBuild.buildCauses.getUserId()}"
 	echo "${currentBuild.getBuildCauses('hudson.model.Cause$UserCause')}"
 	echo "${currentBuild.getBuildCauses('hudson.triggers.TimeTrigger$TimerTriggerCause')}"
     }
