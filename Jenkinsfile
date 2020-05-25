@@ -46,7 +46,7 @@ node {
 	echo "${currentBuild.buildCauses}"
 	def buildCause = currentBuild.getBuildCauses()[0].shortDescription
 	echo "Current build was caused by: ${buildCause}\n"
-	if ( ${buildCause}.contains("interview")) {
+	if ( ${buildCause} != "Started by GitHub push by liorbenami1") {
 		echo "manual trigger"
 	}
     }
