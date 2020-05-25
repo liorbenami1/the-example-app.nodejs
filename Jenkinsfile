@@ -35,8 +35,4 @@ node {
 	)
     }
 
-    stage('Exec npm install') {
-	rtNpmInstall(
-	)
-    }
 }
