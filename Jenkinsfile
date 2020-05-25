@@ -17,4 +17,7 @@ node {
         docker.build("the-example-app/zerto-app:${env.BUILD_ID}", "-f Dockerfile-test .")
     }
 
+    stage('Deploy image') {
+	sh 'echo "start deploy"'	
+    }
 }
