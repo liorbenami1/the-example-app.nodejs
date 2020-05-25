@@ -24,5 +24,7 @@ node {
 			url: SERVER_URL,
 			credentialsId: CREDENTIALS
 		)
+	}
+
     }
 }
