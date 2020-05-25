@@ -43,8 +43,11 @@ node {
     }*/
 
     stage('check if manual') {
-	echo "${currentBuild.buildCauses.values}"
-	echo "${currentBuild.getBuildCauses('hudson.model.Cause$UserCause')}"
+	echo "${currentBuild.buildCauses}"
+	if (${currentBuild.buildCauses}.contains("interview") {
+		echo "this job triggered manually"
+	}
+	echo "${currentBuild.getBuildCauses()}"
 	echo "${currentBuild.getBuildCauses('hudson.triggers.TimeTrigger$TimerTriggerCause')}"
     }
 }
