@@ -18,6 +18,6 @@ node {
     }
 
     stage('Deploy image') {
-	sh 'echo "start deploy"'	
+	sh 'echo "deploy"'	
     }
 }
