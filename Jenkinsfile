@@ -46,7 +46,8 @@ node {
 	echo "${currentBuild.buildCauses}"
 	def buildCause = currentBuild.getBuildCauses()[0].shortDescription
 	echo "Current build was caused by: ${buildCause}\n"
-	def userId = currentBuild.getBuildCauses()[1].userId
-	echo "Current build was caused by: ${userId}\n"
+	if ( ${buildCause}.contains("interview")) {
+		echo "manual trigger"
+	}
     }
 }
