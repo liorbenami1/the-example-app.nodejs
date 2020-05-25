@@ -48,8 +48,5 @@ node {
 	echo "Current build was caused by: ${buildCause}\n"
 	def name = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause').userName
 	echo "${name}"
-	if ( ${name} != null ) {
-		echo "manual trigger"
-	}
     }
 }
