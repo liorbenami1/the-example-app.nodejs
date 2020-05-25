@@ -37,7 +37,7 @@ node {
     
     stage('Exec npm install') {
 	rtNpmInstall(
-		path: "zerto-the-example-app-pipeline",
+		path: "",
 		resolverId: "NPM_RESOLVER"
 	)
     }
