@@ -44,7 +44,7 @@ node {
 
     stage('check if manual') {
 	echo "${currentBuild.buildCauses}"
-	if (${currentBuild.buildCauses}.contains("interview") {
+	if (${currentBuild.buildCauses}.contains("interview")) {
 		echo "this job triggered manually"
 	}
 	echo "${currentBuild.getBuildCauses()}"
