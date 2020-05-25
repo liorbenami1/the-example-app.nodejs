@@ -17,14 +17,12 @@ node {
         docker.build("the-example-app/zerto-app:${env.BUILD_ID}", "-f Dockerfile-test .")
     }
 
-    stage('Push image') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused.*/
-        docker.withRegistry('http://15.185.96.125/artifactory', 'artifactory-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-        }
+    stage('Artifactory configuration') {
+	steps{
+		rtServer(
+                        id: "ARTIFACTORY_SERVER",
+			url: SERVER_URL,
+			credentialsId: CREDENTIALS
+		)
     }
 }
