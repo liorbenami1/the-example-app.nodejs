@@ -32,5 +32,6 @@ node {
 			id: "NPM_DEPLOYER"
 			serverId: "zerto-artifactory",
 			repo: "npm-local"
+		)
     }
 }
