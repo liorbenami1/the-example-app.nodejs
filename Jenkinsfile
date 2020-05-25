@@ -10,11 +10,11 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        app = docker.build("the-example-app/zerto-app")
+        app = docker.build("the-example-app/zerto-app:${env.BUILD_ID}")
     }
 
     stage('Test image') {
-        docker.build("the-example-app/zerto-app", "/var/lib/jenkins/workspace/zerto-the-example-app-pipeline/Dockerfile-test")
+        docker.build("the-example-app/zerto-app:${env.BUILD_ID}", "-f Dockerfile-test")
     }
 
 }
