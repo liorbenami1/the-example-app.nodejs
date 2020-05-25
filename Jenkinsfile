@@ -28,5 +28,9 @@ node {
 			serverId: "zerto-artifactory",
 			repo: "npm-remote"
 		)
+		rtNpmDeployer(
+			id: "NPM_DEPLOYER"
+			serverId: "zerto-artifactory",
+			repo: "npm-local"
     }
 }
