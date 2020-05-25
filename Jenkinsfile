@@ -1,6 +1,5 @@
 node {
     def app
-    def app-test
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -15,7 +14,7 @@ node {
     }
 
     stage('Test image') {
-        app-test = docker.build("the-example-app/zerto-app", "Dockerfile-test")
+        docker.build("the-example-app/zerto-app", "Dockerfile-test")
         }
     }
 
