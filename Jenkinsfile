@@ -18,13 +18,10 @@ node {
     }
 
     stage('Artifactory configuration') {
-	steps{
 		rtServer(
                         id: "ARTIFACTORY_SERVER",
 			url: SERVER_URL,
 			credentialsId: CREDENTIALS
 		)
-	}
-
     }
 }
