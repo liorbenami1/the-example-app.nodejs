@@ -6,7 +6,7 @@ pipeline {
      */
     agent {
         dockerfile {
-            dir '/'
+            dir './'
         }
     }
 
