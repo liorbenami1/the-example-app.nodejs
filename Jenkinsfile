@@ -14,7 +14,7 @@ node {
     }
 
     stage('Test image') {
-        docker.build("the-example-app/zerto-app", "Dockerfile-test")
+        docker.build("the-example-app/zerto-app", "./Dockerfile-test")
     }
 
 }
