@@ -18,20 +18,27 @@ node {
     }
 
     stage('Artifactory configuration') {
-		rtServer(
-                        id: "zerto-artifactory",
-			url: "http://15.185.96.125:8081/artifactory",
-			credentialsId: "artifactory-credentials"
-		)
-		rtNpmResolver(
-			id: "NPM_RESOLVER",
-			serverId: "zerto-artifactory",
-			repo: "npm-remote"
-		)
-		rtNpmDeployer(
-			id: "NPM_DEPLOYER",
-			serverId: "zerto-artifactory",
-			repo: "npm-local"
-		)
+	rtServer(
+        	id: "zerto-artifactory",
+		url: "http://15.185.96.125:8081/artifactory",
+		credentialsId: "artifactory-credentials"
+	)
+	rtNpmResolver(
+		id: "NPM_RESOLVER",
+		serverId: "zerto-artifactory",
+		repo: "npm-remote"
+	)
+	rtNpmDeployer(
+		id: "NPM_DEPLOYER",
+		serverId: "zerto-artifactory",
+		repo: "npm-local"
+	)
+    }
+
+    stage('Exec npm install') {
+	rtNpmInstall(
+		path: "npm-example",	
+		resolverId: "NPM_RESOLVER"
+	)
     }
 }
