@@ -43,7 +43,7 @@ node {
     }*/
 
     stage('check if manual') {
-	if(currentBuild.rawBuild.getCause()[0].toString().contains('UserIdCause')){
+	if(currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause) != null){
 		sh 'echo "this is a manual trigger, going to deploy to Staging environment..."'
 	}
     }
