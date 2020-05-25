@@ -35,14 +35,14 @@ node {
 	)
     }
     
-    stage('Exec npm install') {
+    /*(stage('Exec npm install') {
 	rtNpmInstall(
 		path: "",
 		resolverId: "NPM_RESOLVER"
 	)
-    }
+    }*/
 
-    stag('check if manual')
+    stag('check if manual') {
 	if(currentBuild.rawBuild.getCause()[0].toString().contains('UserIdCause')){
 		sh 'echo "this is a manual trigger, going to deploy to Staging environment..."'
 	}
