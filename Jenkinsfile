@@ -35,14 +35,14 @@ pipeline {
             }
         }
 
-        stage('Exec npm install') {
+        /*stage('Exec npm install') {
             steps {
                 rtNpmInstall(
                         path: "./",
                         resolverId: "NPM_RESOLVER"
                 )
             }
-        }
+        }*/
 
         stage('Exec npm publish') {
             steps {
