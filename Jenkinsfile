@@ -19,9 +19,9 @@ node {
 
     stage('Artifactory configuration') {
 		rtServer(
-                        id: "ARTIFACTORY_SERVER",
-			url: SERVER_URL,
-			credentialsId: CREDENTIALS
+                        id: "zerto-artifactory",
+			url: "http://15.185.96.125:8081/artifactory",
+			credentialsId: "artifactory-credentials"
 		)
     }
 }
