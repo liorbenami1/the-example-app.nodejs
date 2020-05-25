@@ -42,7 +42,7 @@ node {
 	)
     }*/
 
-    stag('check if manual') {
+    stage('check if manual') {
 	if(currentBuild.rawBuild.getCause()[0].toString().contains('UserIdCause')){
 		sh 'echo "this is a manual trigger, going to deploy to Staging environment..."'
 	}
