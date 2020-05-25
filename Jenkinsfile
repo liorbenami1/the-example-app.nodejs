@@ -37,7 +37,7 @@ node {
     
     stage('Exec npm install') {
 	rtNpmInstall(
-		path: "/",
+		path: "/app",
 		resolverId: "NPM_RESOLVER"
 	)
     }
