@@ -45,7 +45,9 @@ node {
     stage('check if manual') {
 	echo "${currentBuild.buildCauses}"
 	def userDetails = ${currentBuild.buildCauses}
+	echo "${userDetails}"
 	def isManual = userDetails.contains("interview")
+	echo "${isManual}"
 	if (isManual) {
 		echo "this job triggered manually"
 	}
