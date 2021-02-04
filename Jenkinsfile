@@ -39,7 +39,8 @@ pipeline {
             steps {
                 script {
                    docker.image(dockerTestImage).inside {
-                        sh 'npm run test'
+                       sh 'npm run test'
+                       sh 'sleep 5m'
                     }
                 }
                 //sh 'npm run test:unit'
