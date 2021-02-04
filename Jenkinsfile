@@ -1,25 +1,19 @@
 pipeline {
-    agent { 
-        docker {
-            //image 'node:dubnium-alpine3.11'
-            image 'node:9'
-            args '-p 3000:3000'
-        }
-        //docker 'node:dubnium-alpine3.11' 
-      }
+    agent any
     stages {
         stage ('Checkout') {
           steps {
             git \
-            branch: 'liorbenami_branch', \
+            branch: 'liorbenami_docker_br', \
             url: 'https://github.com/liorbenami1/the-example-app.nodejs.git'
           }
         }
         stage('Build') {
             steps {
-                sh 'npm install -g contentful-cli'
-                sh 'npm install'
-                sh 'npm run start:dev &'
+                sh 'docker build . -t the-example-app:${env.BUILD_ID}")'
+                //sh 'npm install -g contentful-cli'
+                //sh 'npm install'
+                //sh 'npm run start:dev &'
                 //sh 'mvn clean package'
                 //junit '**/target/surefire-reports/TEST-*.xml'
                 //archiveArtifacts artifacts: 'target/*.war', fingerprint: true
@@ -27,8 +21,9 @@ pipeline {
         }
         stage('unit-test') {
             steps {
-                sh 'npm run test:unit'
-                sh 'sleep 5m'
+                sh 'echo Hello'
+                //sh 'npm run test:unit'
+                //sh 'sleep 5m'
             }
         }
         stage('Deploy-to-DEV') {
