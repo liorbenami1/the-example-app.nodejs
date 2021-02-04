@@ -31,7 +31,7 @@ pipeline {
         stage('Building test image') {
             steps {
                 script {
-                    dockerTestImage = docker.build(imageTestName, "Dockerfile-test")
+                    dockerTestImage = docker.build(imageTestName, "./Dockerfile-test")
                  }
             }
         }
