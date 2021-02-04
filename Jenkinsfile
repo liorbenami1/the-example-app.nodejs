@@ -1,4 +1,9 @@
 pipeline {
+    environment {
+        imagename = "the-example-app:${env.BUILD_ID}"
+        registryCredential = 'liorbenami-dockerhub'
+        dockerImage = ''
+  }
     agent any
     stages {
         stage ('Checkout') {
@@ -8,9 +13,11 @@ pipeline {
             url: 'https://github.com/liorbenami1/the-example-app.nodejs.git'
           }
         }
-        stage('Build') {
+        stage('Building image') {
             steps {
-                sh 'docker build . -t the-example-app:${env.BUILD_ID}'
+                script {
+                    dockerImage = docker.build imagename
+                 }
                 //sh 'npm install -g contentful-cli'
                 //sh 'npm install'
                 //sh 'npm run start:dev &'
