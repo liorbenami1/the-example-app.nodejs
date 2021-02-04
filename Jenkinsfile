@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
                    dockerImage.withRun() { c ->
-                       sh 'sleep 5m'
+                       sh 'sleep 15m'
                     }
                 }
                 //sh 'npm run test:unit'
