@@ -37,8 +37,9 @@ pipeline {
         }
         stage('test') {
             steps {
-                sh 'echo Hello'
-                docker.run dockerTestImage
+                script {
+                    docker.run dockerTestImage
+                }
                 //sh 'npm run test:unit'
                 //sh 'sleep 5m'
             }
