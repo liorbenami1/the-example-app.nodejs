@@ -3,6 +3,8 @@ pipeline {
         imagename = "the-example-app:${env.BUILD_ID}"
         registryCredential = 'liorbenami-dockerhub'
         dockerImage = ''
+        imageTestName = "the-example-app-test:${env.BUILD_ID}"
+        dockerTestImage = ''
   }
     agent any
     stages {
@@ -24,6 +26,13 @@ pipeline {
                 //sh 'mvn clean package'
                 //junit '**/target/surefire-reports/TEST-*.xml'
                 //archiveArtifacts artifacts: 'target/*.war', fingerprint: true
+            }
+        }
+        stage('Building test image') {
+            steps {
+                script {
+                    dockerTestImage = docker.build imageTestName
+                 }
             }
         }
         stage('unit-test') {
