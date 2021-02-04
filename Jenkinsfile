@@ -38,8 +38,8 @@ pipeline {
         stage('test') {
             steps {
                 script {
-                   dockerImage.inside {
-                       npm run test
+                   dockerImage.withRun() { c ->
+                       sh 'npm run test'
                        //sh 'sleep 5m'
                     }
                 }
