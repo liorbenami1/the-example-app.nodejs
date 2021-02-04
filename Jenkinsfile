@@ -31,14 +31,17 @@ pipeline {
         stage('Building test image') {
             steps {
                 script {
-                    dockerTestImage = docker.build(imageTestName, "-f Dockerfile-test .")
+                    sh 'echo hello'
+                    //dockerTestImage = docker.build(imageTestName, "-f Dockerfile-test .")
                  }
             }
         }
         stage('test') {
             steps {
                 script {
-                    docker.run dockerTestImage
+                   docker.image(dockerImage).inside {
+                        sh 'npm run test:e2e:dev'
+                    }
                 }
                 //sh 'npm run test:unit'
                 //sh 'sleep 5m'
