@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
                    docker.image(dockerTestImage).inside {
-                        sh 'npm run test:e2e:dev'
+                        sh 'npm run test'
                     }
                 }
                 //sh 'npm run test:unit'
