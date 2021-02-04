@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker build . -t "the-example-app:${env.BUILD_ID}")'
+                sh 'docker build . -t the-example-app:${env.BUILD_ID}'
                 //sh 'npm install -g contentful-cli'
                 //sh 'npm install'
                 //sh 'npm run start:dev &'
