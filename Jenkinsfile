@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
                    dockerImage.withRun() { c ->
-                       CMD ["npm", "run", "test:e2e:dev"]
+                       sh 'sleep 5m'
                     }
                 }
                 //sh 'npm run test:unit'
