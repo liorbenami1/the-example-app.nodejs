@@ -31,15 +31,14 @@ pipeline {
         stage('Building test image') {
             steps {
                 script {
-                    sh 'echo hello'
-                    //dockerTestImage = docker.build(imageTestName, "-f Dockerfile-test .")
+                    dockerTestImage = docker.build(imageTestName, "-f Dockerfile-test .")
                  }
             }
         }
         stage('test') {
             steps {
                 script {
-                   docker.image(dockerImage).inside {
+                   docker.image(dockerTestImage).inside {
                         sh 'npm run test:e2e:dev'
                     }
                 }
