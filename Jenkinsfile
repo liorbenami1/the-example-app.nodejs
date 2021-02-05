@@ -28,17 +28,17 @@ pipeline {
                 //archiveArtifacts artifacts: 'target/*.war', fingerprint: true
             }
         }
-        //stage('Building test image') {
-        //    steps {
-        //        script {
-        //            dockerTestImage = docker.build(imageTestName, "-f Dockerfile-test .")
-        //         }
-        //    }
-        //}
+        stage('Building test image') {
+            steps {
+                script {
+                    dockerTestImage = docker.build(imageTestName, "-f Dockerfile-test .")
+                 }
+            }
+        }
         stage('test') {
             steps {
                 script {
-                   dockerImage.withRun() { c ->
+                   dockerTestImage.withRun() { c ->
                        sh 'sleep 15m'
                     }
                 }
